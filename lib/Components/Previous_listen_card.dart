@@ -29,7 +29,7 @@ class PreviousListenCard extends StatelessWidget {
             ),
             Row(
               children: [
-                Container(
+                SizedBox(
                   height: 56,
                   width: width * 0.15,
                   child: Image.asset(
