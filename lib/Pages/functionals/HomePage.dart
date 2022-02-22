@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'HomePage_Body.dart';
+import 'Search.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -12,9 +13,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int index = 0;
   final screens = [
     const HomePageBody(),
-    const Center(
-      child: Text("Search"),
-    ),
+    SearchPage(),
     const Center(
       child: Text("Cal"),
     ),
