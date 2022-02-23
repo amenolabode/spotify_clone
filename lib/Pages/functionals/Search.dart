@@ -65,7 +65,7 @@ class _SearchPageState extends State<SearchPage> {
     );
   }
 
-  Row SearchBar(double width) {
+  Row searchBar(double width) {
     return Row(
       children: [
         Stack(

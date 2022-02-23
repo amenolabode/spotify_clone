@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 
 class AlbumView extends StatelessWidget {
@@ -5,27 +7,20 @@ class AlbumView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-            // decoration: BoxDecoration(color: Colors.black),
-            ),
-        SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomRight,
-                      stops: [0, 0.5],
-                      colors: [Colors.white, Colors.amber]),
-                ),
-              ),
-            ],
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+
+    return Scaffold(
+      body: CustomScrollView(slivers: [
+        SliverAppBar(
+          expandedHeight: 240,
+          flexibleSpace: FlexibleSpaceBar(
+            title: Text("data"),
+            background: Image.asset("name"),
           ),
-        )
-      ],
+        ),
+        // SliverList(delegate: delegate)
+      ]),
     );
   }
 }
