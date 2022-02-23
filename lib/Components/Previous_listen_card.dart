@@ -10,7 +10,7 @@ class PreviousListenCard extends StatelessWidget {
       : super(key: key);
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
+    // double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.only(bottom: 12.0),

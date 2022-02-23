@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:spotify/Components/style.dart';
-import 'package:marquee/marquee.dart';
 
 class PlayingBar extends StatelessWidget {
   const PlayingBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
+    // double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
     return Padding(

@@ -1,84 +1,67 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:spotify/Components/search_components.dart';
+import 'Search_body.dart';
 import 'package:spotify/Components/style.dart';
 
-class SearchPage extends StatelessWidget {
+class SearchPage extends StatefulWidget {
   // final Color backgroundColor;
   const SearchPage({Key? key}) : super(key: key);
 
   @override
+  State<SearchPage> createState() => _SearchPageState();
+}
+
+class _SearchPageState extends State<SearchPage> {
+  @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
-    return Stack(
-      children: [
-        Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomCenter,
-              stops: [0, 0.4],
-              colors: [
-                Color(0xff4B3F3A),
-                Color(0xff000000),
-              ],
-            ),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: ListView(
-            children: [
-              const Padding(
-                padding: EdgeInsets.only(bottom: 32.0),
-                child: Text(
-                  "Search",
-                  style: sectionTitle,
-                ),
-              ),
-              SearchBar(width),
-              const Padding(
-                padding: EdgeInsets.only(top: 24.0, bottom: 16),
-                child: Text(
-                  "Your top genres",
-                  style: whiteTextStyle,
-                ),
-              ),
-              Row(
-                children: const [
-                  Padding(
-                    padding: EdgeInsets.only(right: 16.0),
-                    child: SearchCards(
-                        backgroundColor: Colors.orange,
-                        searchComponentsImage: "Assets/Images/Afterburner.png",
-                        searchCardText: "Hip-Hop"),
-                  ),
-                  SearchCards(
-                      backgroundColor: Colors.purple,
-                      searchComponentsImage: "Assets/Images/image 11.png",
-                      searchCardText: "Rap")
-                ],
-              ),
-              Row(
-                children: const [
-                  Padding(
-                    padding: EdgeInsets.only(right: 16.0),
-                    child: SearchCards(
-                        backgroundColor: Colors.red,
-                        searchComponentsImage: "Assets/Images/Afterburner.png",
-                        searchCardText: "Afro"),
-                  ),
-                  SearchCards(
-                      backgroundColor: Colors.blue,
-                      searchComponentsImage: "Assets/Images/image 11.png",
-                      searchCardText: "Christian & Gospel")
-                ],
-              )
+    // double width = MediaQuery.of(context).size.width;
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomCenter,
+            stops: [0, 0.4],
+            colors: [
+              Color(0xff4B3F3A),
+              Color(0xff000000),
             ],
           ),
-        )
-      ],
+        ),
+        child: CustomScrollView(
+          slivers: <Widget>[
+            const SliverAppBar(
+              pinned: true,
+              snap: false,
+              floating: false,
+              expandedHeight: 160,
+              // collapsedHeight: 124,
+              flexibleSpace: FlexibleSpaceBar(
+                background: SafeArea(
+                  child: Padding(
+                    padding: EdgeInsets.only(top: 32.0, left: 16),
+                    child: Text(
+                      "Search",
+                      style: sectionTitle,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SliverList(
+              delegate:
+                  SliverChildBuilderDelegate((BuildContext context, int index) {
+                return Stack(
+                  children: [
+                    SizedBox(height: height, child: const SearchPageBody())
+                  ],
+                );
+              }, childCount: 1),
+            ),
+          ],
+        ),
+      ),
     );
   }
 
