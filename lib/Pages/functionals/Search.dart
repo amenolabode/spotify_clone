@@ -14,54 +14,43 @@ class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
-    // double width = MediaQuery.of(context).size.width;
+    double width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.black,
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomCenter,
-            stops: [0, 0.4],
-            colors: [
-              Color(0xff4B3F3A),
-              Color(0xff000000),
-            ],
+      body: Stack(children: [
+        Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomCenter,
+              stops: [0, 0.4],
+              colors: [
+                Color(0xff4B3F3A),
+                Color(0xff000000),
+              ],
+            ),
           ),
         ),
-        child: CustomScrollView(
-          slivers: <Widget>[
-            const SliverAppBar(
-              pinned: true,
-              snap: false,
-              floating: false,
-              expandedHeight: 160,
-              // collapsedHeight: 124,
-              flexibleSpace: FlexibleSpaceBar(
-                background: SafeArea(
-                  child: Padding(
-                    padding: EdgeInsets.only(top: 32.0, left: 16),
-                    child: Text(
-                      "Search",
-                      style: sectionTitle,
-                    ),
-                  ),
+        ListView(children: [
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Search",
+                  style: sectionTitle,
                 ),
-              ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 16.0),
+                  child: searchBar(width),
+                ),
+              ],
             ),
-            SliverList(
-              delegate:
-                  SliverChildBuilderDelegate((BuildContext context, int index) {
-                return Stack(
-                  children: [
-                    SizedBox(height: height, child: const SearchPageBody())
-                  ],
-                );
-              }, childCount: 1),
-            ),
-          ],
-        ),
-      ),
+          ),
+          SearchPageBody()
+        ]),
+      ]),
     );
   }
 

@@ -1,6 +1,6 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
+import 'package:spotify/Components/style.dart';
+import 'album_view_body.dart';
 
 class AlbumView extends StatelessWidget {
   const AlbumView({Key? key}) : super(key: key);
@@ -11,16 +11,25 @@ class AlbumView extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      body: CustomScrollView(slivers: [
-        SliverAppBar(
-          expandedHeight: 240,
-          flexibleSpace: FlexibleSpaceBar(
-            title: Text("data"),
-            background: Image.asset("name"),
+        extendBodyBehindAppBar: true,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          foregroundColor: Colors.transparent,
+          // shadowColor: Colors.transparent,
+          leading: IconButton(
+            icon: const Icon(
+              Icons.chevron_left,
+              size: 32,
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            color: whiteColor,
           ),
+
+          shadowColor: null,
         ),
-        // SliverList(delegate: delegate)
-      ]),
-    );
+        body: const AlbumViewBody());
   }
 }

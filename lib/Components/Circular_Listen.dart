@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spotify/Pages/functionals/album_view.dart';
 import 'style.dart';
 
 class CircluarListen extends StatelessWidget {

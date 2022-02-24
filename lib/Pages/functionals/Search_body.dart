@@ -16,7 +16,7 @@ class SearchPageBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Padding(
-            padding: EdgeInsets.only(top: 32, bottom: 16),
+            padding: EdgeInsets.only(top: 16, bottom: 16),
             child: Text(
               "Your top genres",
               style: whiteTextStyle,
