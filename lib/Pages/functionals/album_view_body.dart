@@ -25,20 +25,18 @@ class _AlbumViewBodyState extends State<AlbumViewBody> {
           child: Column(
             children: [
               Container(
-                height: height,
+                // height: height,
                 width: width,
                 decoration: const BoxDecoration(
                   gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      stops: [
-                        0,
-                        0.5
-                      ],
-                      colors: [
-                        Color(0xff4B3F3A),
-                        Color(0xff000000),
-                      ]),
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    stops: [0, 0.6],
+                    colors: [
+                      Color(0xff4B3F3A),
+                      Color(0xff000000),
+                    ],
+                  ),
                 ),
                 child: SafeArea(
                   child: Padding(
@@ -123,10 +121,10 @@ class _AlbumViewBodyState extends State<AlbumViewBody> {
                                       child: Row(
                                         children: [
                                           LikeButton(
-                                            circleColor: CircleColor(
+                                            circleColor: const CircleColor(
                                                 start: primaryColor,
                                                 end: primaryColor),
-                                            bubblesColor: BubblesColor(
+                                            bubblesColor: const BubblesColor(
                                               dotPrimaryColor:
                                                   Color(0xff33b5e5),
                                               dotSecondaryColor:
@@ -155,14 +153,14 @@ class _AlbumViewBodyState extends State<AlbumViewBody> {
                                                           100),
                                                   border: Border.all(
                                                       width: 2, color: grey)),
-                                              child: Icon(
+                                              child: const Icon(
                                                 Icons.arrow_downward_sharp,
                                                 color: grey,
                                                 size: 14,
                                               ),
                                             ),
                                           ),
-                                          Icon(
+                                          const Icon(
                                             Icons.more_vert,
                                             color: grey,
                                             size: 30,
@@ -185,6 +183,16 @@ class _AlbumViewBodyState extends State<AlbumViewBody> {
                                   ],
                                 ),
                               ),
+                              _musicRowItem("Akaraka", "disabledText"),
+                              _musicRowItem("Akaraka", "disabledText"),
+                              _musicRowItem("Akaraka", "disabledText"),
+                              _musicRowItem("Akaraka", "disabledText"),
+                              _musicRowItem("Akaraka", "disabledText"),
+                              _musicRowItem("Akaraka", "disabledText"),
+                              _musicRowItem("Akaraka", "disabledText"),
+                              _musicRowItem("Akaraka", "disabledText"),
+                              _musicRowItem("Akaraka", "disabledText"),
+                              _musicRowItem("Akaraka", "disabledText"),
                               _musicRowItem("Akaraka", "disabledText")
                             ],
                           ),
@@ -206,50 +214,85 @@ class _AlbumViewBodyState extends State<AlbumViewBody> {
   }
 
   Widget _musicRowItem(String title, String disabledText) {
-    return Row(
-      children: [
-        // Remember this!!!!!!!!!!!
-        // const Padding(padding: EdgeInsets.symmetric(vertical: 40)),
-        ClipRRect(
-          child: Container(
-              // color: iconBg,
-              height: 44,
-              width: 44,
-              child: Image.asset("Assets/Images/Afterburner.png")),
-        ),
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.only(left: 8.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: const TextStyle(color: Colors.white),
-                ),
-                Row(
-                  children: [
-                    const Icon(
-                      Icons.download,
-                      color: whiteColor,
-                      size: 16,
+    return Padding(
+      padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
+      child: Row(
+        children: [
+          // Remember this!!!!!!!!!!!
+          // const Padding(padding: EdgeInsets.symmetric(vertical: 40)),
+          ClipRRect(
+            child: SizedBox(
+                // color: iconBg,
+                height: 44,
+                width: 44,
+                child: Image.asset("Assets/Images/Afterburner.png")),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 12.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 2.0),
+                    child: Text(
+                      title,
+                      style: whiteTextStyle,
                     ),
-                    const Text(
-                      "data",
-                      style: streamNumber,
-                    )
-                  ],
-                )
-              ],
+                  ),
+                  Row(
+                    children: [
+                      Container(
+                        height: 16,
+                        width: 16,
+                        decoration: BoxDecoration(
+                            color: primaryColor,
+                            borderRadius: BorderRadius.circular(100)),
+                        child: const Icon(
+                          Icons.download,
+                          color: blackColor,
+                          size: 10,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                        child: Container(
+                          height: 14,
+                          width: 40,
+                          child: Stack(
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                    color: grey,
+                                    borderRadius: BorderRadius.circular(4)),
+                              ),
+                              const Center(
+                                child: Text(
+                                  "LYRICS",
+                                  style: blackCaption,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      const Text(
+                        "The Cavemen.",
+                        style: streamNumber,
+                      )
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
-        ),
 
-        const Icon(
-          Icons.more_vert,
-          color: Colors.white,
-        )
-      ],
+          const Icon(
+            Icons.more_vert,
+            color: Colors.white,
+          )
+        ],
+      ),
     );
   }
 }
