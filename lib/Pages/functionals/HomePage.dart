@@ -13,7 +13,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int index = 0;
   final screens = [
     const HomePageBody(),
-    SearchPage(),
+    const SearchPage(),
     const Center(
       child: Text("Cal"),
     ),
@@ -23,13 +23,11 @@ class _MyHomePageState extends State<MyHomePage> {
   ];
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: screens[index],
       bottomNavigationBar: NavigationBarTheme(
         data: NavigationBarThemeData(
-          indicatorColor: Color(0xff020202).withOpacity(0),
+          indicatorColor: const Color(0xff020202).withOpacity(0),
           labelTextStyle: MaterialStateProperty.all(
             const TextStyle(
               fontSize: 12,

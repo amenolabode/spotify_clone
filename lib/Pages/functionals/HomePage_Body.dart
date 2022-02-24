@@ -178,7 +178,7 @@ class HomePageBody extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(top: 28, bottom: 16.0),
+                      padding: const EdgeInsets.only(top: 28, bottom: 16.0),
                       child: Row(
                         children: [
                           ClipOval(
@@ -240,7 +240,7 @@ class HomePageBody extends StatelessWidget {
             ),
           ],
         ),
-        Positioned(
+        const Positioned(
           bottom: 0,
           child: PlayingBar(),
         ),

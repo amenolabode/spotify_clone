@@ -17,17 +17,20 @@ class SectionCards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(right: 16),
-      width: 148,
-      height: 184,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(bottom: 8.0),
-            child: Container(
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, '/albumview');
+      },
+      child: Container(
+        margin: const EdgeInsets.only(right: 16),
+        width: 148,
+        height: 184,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8.0),
               child: Image.asset(
                 squareImage,
                 // height: 100,
@@ -35,36 +38,36 @@ class SectionCards extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-          ),
-          Text(squareMusicTitle, style: musicTitle),
-          Padding(
-            padding: const EdgeInsets.only(top: 2.0),
-            child: Row(
-              children: [
-                Text(
-                  squareMusicSubtitle,
-                  style: musicSubTitle,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 4.0, right: 4.0),
-                  child: SizedBox(
-                    height: 4,
-                    width: 4,
-                    child: ClipOval(
-                      child: Container(
-                        color: grey,
+            Text(squareMusicTitle, style: musicTitle),
+            Padding(
+              padding: const EdgeInsets.only(top: 2.0),
+              child: Row(
+                children: [
+                  Text(
+                    squareMusicSubtitle,
+                    style: musicSubTitle,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 4.0, right: 4.0),
+                    child: SizedBox(
+                      height: 4,
+                      width: 4,
+                      child: ClipOval(
+                        child: Container(
+                          color: grey,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                Text(
-                  squareMusicSubtitleName,
-                  style: musicSubTitle,
-                )
-              ],
-            ),
-          )
-        ],
+                  Text(
+                    squareMusicSubtitleName,
+                    style: musicSubTitle,
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
 import 'style.dart';
 
 class SearchCards extends StatelessWidget {
@@ -16,7 +15,7 @@ class SearchCards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
+    // double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.only(bottom: 16.0),
@@ -34,7 +33,7 @@ class SearchCards extends StatelessWidget {
               children: [
                 Expanded(
                   child: Padding(
-                    padding: EdgeInsets.only(top: 16.0, left: 16.0),
+                    padding: const EdgeInsets.only(top: 16.0, left: 16.0),
                     child: Text(
                       searchCardText,
                       style: whiteTextStyle,
@@ -59,7 +58,7 @@ class SearchCards extends StatelessWidget {
                                   color: Colors.black.withOpacity(0.4),
                                   blurRadius: 0.5,
                                   spreadRadius: 0.5,
-                                  offset: Offset(0, 2))
+                                  offset: const Offset(0, 2))
                             ]),
                             height: 100,
                             width: 70,

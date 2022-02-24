@@ -1,18 +1,23 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:spotify/Components/search_components.dart';
+import 'Search_body.dart';
 import 'package:spotify/Components/style.dart';
 
-class SearchPage extends StatelessWidget {
+class SearchPage extends StatefulWidget {
   // final Color backgroundColor;
   const SearchPage({Key? key}) : super(key: key);
 
   @override
+  State<SearchPage> createState() => _SearchPageState();
+}
+
+class _SearchPageState extends State<SearchPage> {
+  @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-    return Stack(
-      children: [
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: Stack(children: [
         Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
@@ -26,63 +31,30 @@ class SearchPage extends StatelessWidget {
             ),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: ListView(
-            children: [
-              const Padding(
-                padding: EdgeInsets.only(bottom: 32.0),
-                child: Text(
+        ListView(children: [
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
                   "Search",
                   style: sectionTitle,
                 ),
-              ),
-              SearchBar(width),
-              const Padding(
-                padding: EdgeInsets.only(top: 24.0, bottom: 16),
-                child: Text(
-                  "Your top genres",
-                  style: whiteTextStyle,
+                Padding(
+                  padding: const EdgeInsets.only(top: 16.0),
+                  child: searchBar(width),
                 ),
-              ),
-              Row(
-                children: const [
-                  Padding(
-                    padding: EdgeInsets.only(right: 16.0),
-                    child: SearchCards(
-                        backgroundColor: Colors.orange,
-                        searchComponentsImage: "Assets/Images/Afterburner.png",
-                        searchCardText: "Hip-Hop"),
-                  ),
-                  SearchCards(
-                      backgroundColor: Colors.purple,
-                      searchComponentsImage: "Assets/Images/image 11.png",
-                      searchCardText: "Rap")
-                ],
-              ),
-              Row(
-                children: const [
-                  Padding(
-                    padding: EdgeInsets.only(right: 16.0),
-                    child: SearchCards(
-                        backgroundColor: Colors.red,
-                        searchComponentsImage: "Assets/Images/Afterburner.png",
-                        searchCardText: "Afro"),
-                  ),
-                  SearchCards(
-                      backgroundColor: Colors.blue,
-                      searchComponentsImage: "Assets/Images/image 11.png",
-                      searchCardText: "Christian & Gospel")
-                ],
-              )
-            ],
+              ],
+            ),
           ),
-        )
-      ],
+          SearchPageBody()
+        ]),
+      ]),
     );
   }
 
-  Row SearchBar(double width) {
+  Row searchBar(double width) {
     return Row(
       children: [
         Stack(
