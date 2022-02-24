@@ -36,6 +36,13 @@ const TextStyle musicSubTitle = TextStyle(
     fontWeight: FontWeight.w400,
     color: Color(0xffA7A7A7));
 
+const TextStyle blackCaption = TextStyle(
+    fontSize: 10,
+    height: 1,
+    fontFamily: "Poppins",
+    fontWeight: FontWeight.w400,
+    color: Color(0xff000000));
+
 const TextStyle streamNumber = TextStyle(
     fontSize: 10,
     height: 1,
@@ -60,3 +67,4 @@ const TextStyle whiteTextStyle = TextStyle(
 const primaryColor = Color(0xff00CB51);
 const whiteColor = Colors.white;
 const grey = Color(0xffA7A7A7);
+const blackColor = Colors.black;
